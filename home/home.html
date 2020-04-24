@@ -2,9 +2,9 @@
 <div style="display: flex; justify-content: center;">
 
 <div class="dn-modal-window submit-review">
-  <div class="dn-modal-header" ng-style="{'background': vm.headerColor, 'color': '#fff'}">
+  <div class="dn-modal-header" ng-style="{'background': headerColor, 'color': '#fff'}">
     <div class="dn-header-text">
-      {{ vm.titles[vm.step] }}
+      {{ titles[step] }}
     </div>
 
     <div class="dn-x-close-modal">
@@ -13,14 +13,14 @@
   </div>
   
   <div class="dn-modal-body">
-    <div ng-if="vm.step === 1" class="step-1">
-      <ng-container ng-repeat="rate in vm.rates">
+    <div ng-if="step === 1" class="step-1">
+      <ng-container ng-repeat="rate in rates">
         <div
           ng-class="{
             'rate-btn': true,
-            'rate-btn-selected': rate.rate === vm.currentRate
+            'rate-btn-selected': rate.rate === currentRate
           }"
-          ng-click="vm.setRate(rate.rate)"
+          ng-click="setRate(rate.rate)"
         >
           <span class="margin-right-10">
             <i
@@ -36,52 +36,55 @@
       </ng-container>
     </div>
 
-    <div ng-if="vm.step === 2" class="step-2">
+    <div ng-if="step === 2" class="step-2">
       <input
         id="upload-review-photo"
         type="file"
         style="display: none;"
         ng-model="fileInputm"
-        ng-change="vm.fileFromInput($event)"
+        ng-change="fileFromInput($event)"
         ng-ref="fileInput"
       >
       <div
         class="upload-area"
-        ng-dragover="vm.onDragOver($event)"
-        ng-drop="vm.fileFromDrop($event)"
-        ng-click="vm.triggerInputClick()"
-        ng-dragenter="vm.onDropZoneDragEnter($event)"
-        ng-dragleave="vm.onDropZoneDragLeave($event)"
+        ng-click="triggerInputClick()"
       >
-          <i class="fa fa-cloud-upload fa-5x upload-icon"></i>
+      <div class="upload-icon">
+          <svg width="73" height="62" viewBox="0 0 73 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M36.6105 0L17.4404 17.8921H29.5234V36.1328H43.4653V17.8921H55.4321L36.6105 0Z" fill="#C4C4C4"/>
+<path d="M8.84278 43.6846L21.1581 34.39L21.739 33.8091H14.1872L2.33656 41.9419C2.33656 41.9419 0.419548 43.3941 0.129092 44.8464C-0.161365 46.2987 0.129092 47.751 0.129092 47.751L2.33656 58.3236C2.33656 58.3236 2.51081 59.6016 3.84693 60.7634C5.18305 61.9252 7.56477 61.9252 7.56477 61.9252H65.0751C65.0751 61.9252 67.3406 62.0414 68.9091 60.7634C70.4776 59.4854 70.6519 58.3236 70.6519 58.3236L72.2784 49.4937C72.2784 49.4937 72.627 47.4605 72.8593 45.5435C73.0917 43.6265 71.2328 42.5228 71.2328 42.5228L58.8012 34.39H51.8303L64.2618 43.6846H50.4361L47.183 52.3983H25.5731L22.5523 43.6846H8.84278Z" fill="#C4C4C4"/>
+</svg></div>
+
           <div class="upload-text">SELECT OR DRAG & DROP YOUR IMAGE HERE</div>
           <div class="upload-btn">Choose photo</div>
       </div>
     </div>
 
-    <div ng-if="vm.errors.length" class="dn-error">
-      <div ng-repeat="error in vm.errors">{{ error }}</div>
+    <div ng-if="step === 3" class="step-3">
+      <textarea
+        class="reset"
+        rows="6"
+        ng-model=""
+      ></textarea>
+    </div>
+
+    <div ng-if="errors.length" class="dn-error">
+      <div ng-repeat="error in errors">{{ error }}</div>
     </div>
   </div>
 
-  <div ng-if="vm.step === 3" class="step-3">
-    <textarea>
-
-    </textarea>
-  </div>
-
   <div class="dn-modal-footer">
-    <a class="dn-close-modal reset-a" type="button" ng-if="vm.step === 1" ng-click="vm.close()">Cancel</a>
-    <a class="dn-close-modal reset-a" type="button" ng-if="vm.step > 1" ng-click="vm.back()">Back</a>
+    <a class="dn-close-modal reset" type="button" ng-if="step === 1" ng-click="close()">Cancel</a>
+    <a class="dn-close-modal reset" type="button" ng-if="step > 1" ng-click="back()">Back</a>
     
     <ul class="submit-review-dots">
       <li
-        ng-repeat="step in [1,2,3,4]"
-        ng-style="{'background': step === vm.step ? vm.headerColor : ''}"
+        ng-repeat="i in [1,2,3,4]"
+        ng-style="{'background': i === step ? headerColor : ''}"
       ></li>
     </ul>
     
-    <a class="dn-close-modal reset-a" type="button" ng-click="vm.next()">Next</a>
+    <a class="dn-close-modal reset" type="button" ng-click="next()">Next</a>
   </div>
 </div>
 

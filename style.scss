@@ -111,6 +111,18 @@
       }
     }
   }
+
+  .step-3 {
+    padding: 15px;
+    // padding: 10px 10px 0 10px;
+
+    textarea {
+      width: 100%;
+      border-radius: 5px;
+      box-shadow: 0px 0px 8px rgba(73, 73, 73, 0.5);
+      padding: 30px;
+    }
+  }
   
   .rate-btn:hover, .rate-btn.rate-btn-selected {
     border: 2px solid;

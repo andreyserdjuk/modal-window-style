@@ -2,87 +2,69 @@ class HomeCtrl {
   constructor($scope) {
     'ngInject';
 
-    this.step = 4;
-    this.headerColor = '#494949';
-    this.titles = {
+    $scope.step = 2;
+    $scope.headerColor = '#494949';
+    $scope.titles = {
       1: 'How would your rate this product?',
       2: 'Upload a photo of a product (optional)',
+      3: 'Tell us more about the product',
     };
 
-    this.rates = [
+    $scope.rates = [
       { rate: 5, title: 'Love it' },
       { rate: 4, title: 'Like it' },
       { rate: 3, title: 'It\'s okay' },
       { rate: 2, title: 'I didn\'t like it' },
       { rate: 1, title: 'Hate it' },
     ];
-    this.errors = [];
-    this.currentRate = null;
+    $scope.errors = [];
 
-    this.next = next;
-    this.setRate = setRate;
-    this.back = back;
-    this.triggerInputClick = triggerInputClick;
+    // user input
+    $scope.currentRate = null;
+    $scope.photo = null;
+
+    $scope.next = next;
+    $scope.setRate = setRate;
+    $scope.back = back;
+    $scope.triggerInputClick = triggerInputClick;
 
     function setRate(rate) {
-      this.currentRate = rate;
-      this.next();
+      $scope.currentRate = rate;
+      $scope.next();
     }
 
     function next() {
-      this.errors = [];
-      if (this.step === 1) {
-        if (!this.currentRate) {
-          this.errors.push('Please leave your rate.');
+      $scope.errors = [];
+      if ($scope.step === 1) {
+        if (!$scope.currentRate) {
+          $scope.errors.push('Please leave your rate.');
           return;
         }
-        this.step = 2;
+        $scope.step = 2;
         return;
+      }
+
+      if ($scope.step === 2) {
+        ++$scope.step;
       }
     }
 
     function back() {
-      --this.step;
+      --$scope.step;
     }
 
-    function onDragOver(event) {
-        event.preventDefault();
-        event.stopPropagation();
-    }
+    // function triggerInputClick() {
+    //   document.getElementById('upload-review-photo').click();
+    // }
 
-    function triggerInputClick() {
-      document.getElementById('upload-review-photo').click();
-    }
-
-    // DragEvent
-    function fileFromDrop(event) {
-      event.preventDefault();
-      event.stopPropagation();
-
-      if (event.dataTransfer.files.length) {
-        this.handleUploadedFile(event.dataTransfer.files[0]);
+    function fileFromInput(files) {
+      console.log(files);
+      if (!files[0]) {
+        return;
       }
-    }
 
-    function fileFromInput(event) {
-      const target = event.target;
-
-      if (target.files.length) {
-        this.handleUploadedFile(target.files[0]);
-      }
-    }
-
-    function handleUploadedFile(file) {
-      this.fileUploadError = '';
-      this.dropZoneClass = '';
-
-      // if (file.type !== 'text/csv') {
-      //   this.dropZoneClass = 'invalid';
-      //   this.fileUploadError = 'Only .csv files are supported.';
-      //   return;
-      // }
-
-      this.nextStep();
+      $scope.photo = files[0];
+      $scope.next();
     }
   }
 }

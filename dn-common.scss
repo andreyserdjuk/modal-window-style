@@ -1,5 +1,11 @@
-.reset-a, .reset-a:hover {
+a.reset, a.reset:hover {
   text-decoration: none;
+}
+
+textarea.reset {
+  border: none;
+  outline: none;
+  resize: none;
 }
 
 .dn-error {
