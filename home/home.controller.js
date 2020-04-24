@@ -8,6 +8,7 @@ class HomeCtrl {
       1: 'How would your rate this product?',
       2: 'Upload a photo of a product (optional)',
       3: 'Tell us more about the product',
+      4: 'Provide first name, last name & email address',
     };
 
     $scope.rates = [
