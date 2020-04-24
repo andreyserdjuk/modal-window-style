@@ -1,5 +1,6 @@
 import angular from 'angular';
 import '@uirouter/angularjs';
+import 'ng-file-upload';
 
 // Import your app stylesheets
 import './style.scss';
@@ -11,7 +12,8 @@ import './home'
 // Create and bootstrap application
 const requires = [
   'ui.router',
-  'home'
+  'home',
+  'ngFileUpload'
 ];
 
 window.app = angular.module('app', requires);

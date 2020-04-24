@@ -1,5 +1,5 @@
 class HomeCtrl {
-  constructor($scope) {
+  constructor($scope, Upload) {
     'ngInject';
 
     $scope.step = 2;
@@ -27,6 +27,7 @@ class HomeCtrl {
     $scope.setRate = setRate;
     $scope.back = back;
     $scope.triggerInputClick = triggerInputClick;
+    $scope.fileFromInput = fileFromInput;
 
     function setRate(rate) {
       $scope.currentRate = rate;
@@ -53,17 +54,16 @@ class HomeCtrl {
       --$scope.step;
     }
 
-    // function triggerInputClick() {
-    //   document.getElementById('upload-review-photo').click();
-    // }
+    function triggerInputClick() {
+      document.getElementById('upload-review-photo').click();
+    }
 
     function fileFromInput(files) {
-      console.log(files);
-      if (!files[0]) {
+      if (files === undefined || !files[0]) {
         return;
       }
-
       $scope.photo = files[0];
+      
       $scope.next();
     }
   }
