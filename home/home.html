@@ -64,6 +64,12 @@
     </div>
   </div>
 
+  <div ng-if="vm.step === 3" class="step-3">
+    <textarea>
+
+    </textarea>
+  </div>
+
   <div class="dn-modal-footer">
     <a class="dn-close-modal reset-a" type="button" ng-if="vm.step === 1" ng-click="vm.close()">Cancel</a>
     <a class="dn-close-modal reset-a" type="button" ng-if="vm.step > 1" ng-click="vm.back()">Back</a>
