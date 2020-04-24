@@ -2,7 +2,7 @@ class HomeCtrl {
   constructor($scope, Upload) {
     'ngInject';
 
-    $scope.step = 2;
+    $scope.step = 4;
     $scope.headerColor = '#494949';
     $scope.titles = {
       1: 'How would your rate this product?',
@@ -23,6 +23,7 @@ class HomeCtrl {
     $scope.currentRate = null;
     $scope.photo = null;
     $scope.reviewContent = '';
+    $scope.user = {};
 
     $scope.next = next;
     $scope.setRate = setRate;
