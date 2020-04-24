@@ -134,7 +134,7 @@
       justify-content: space-between;
 
       .dn-vertical-input {
-        height: 90px;
+        height: 100px;
       }
 
       .ng-invalid.ng-touched {
@@ -146,5 +146,9 @@
   .rate-btn:hover, .rate-btn.rate-btn-selected {
     border: 2px solid;
     font-weight: bold;
+  }
+
+  .footer-text {
+    width: 150px;
   }
 }
