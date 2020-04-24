@@ -20,6 +20,9 @@
             'rate-btn': true,
             'rate-btn-selected': rate.rate === currentRate
           }"
+          ng-mouseenter="hovering=true"
+          ng-mouseleave="hovering=false"
+          ng-style="{'border-color': (hovering || currentRate === rate.rate)? headerColor : ''}"
           ng-click="setRate(rate.rate)"
         >
           <span class="margin-right-10">

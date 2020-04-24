@@ -52,6 +52,7 @@
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    // justify-content: stretch;
     width: 100%;
     overflow: hidden;
     height: 210px;
@@ -60,7 +61,9 @@
       padding: 10px 0 10px 25px;
       background: #fff;
       margin: 12px 15px 12px;
-      width: 235px;
+      // width: 235px;
+      // font-weight: bold;
+      color: #494949;
       cursor: pointer;
       border: 2px solid transparent;
       box-shadow: 0px 0px 8px rgba(73, 73, 73, 0.5);
@@ -136,6 +139,7 @@
       .dn-vertical-input {
         height: 100px;
         width: 300px;
+        padding-right: 10px;
       }
 
       .ng-invalid.ng-touched {
@@ -144,9 +148,10 @@
     }
   }
   
-  .rate-btn:hover, .rate-btn.rate-btn-selected {
+  .rate-btn.rate-btn-selected {
     border: 2px solid;
-    font-weight: bold;
+    text-shadow:0px 0px 1px black;
+    color: black;
   }
 
   .footer-text {

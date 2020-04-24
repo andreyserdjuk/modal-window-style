@@ -2,8 +2,8 @@ class HomeCtrl {
   constructor($scope, Upload, vcRecaptchaService) {
     'ngInject';
 
-    $scope.step = 4;
-    $scope.headerColor = '#494949';
+    $scope.step = 1;
+    $scope.headerColor = 'green';
     $scope.titles = {
       1: 'How would your rate this product?',
       2: 'Upload a photo of a product (optional)',
@@ -68,6 +68,7 @@ class HomeCtrl {
 
       if ($scope.step === 4) {
         console.log($scope.recaptchaResponse);
+        console.log();
       }
     }
 

@@ -1,12 +1,6 @@
+// resets
 a.reset, a.reset:hover {
   text-decoration: none;
-}
-
-.text-align-center {
-  text-align: center;
-}
-.text-align-right {
-  text-align: right;
 }
 
 textarea.reset {
@@ -15,8 +9,14 @@ textarea.reset {
   resize: none;
 }
 
-.dn-error {
-  color: #fa023c;
+
+// shortcuts
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-right {
+  text-align: right;
 }
 
 .margin-right-2 {
@@ -25,6 +25,12 @@ textarea.reset {
   
 .margin-right-10 {
     margin-right: 10px;
+}
+
+
+// dashnex specific
+.dn-error {
+  color: #fa023c;
 }
 
 .dn-vertical-input {
