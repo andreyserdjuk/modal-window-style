@@ -1,0 +1,119 @@
+@import './dn-common';
+@import './dn-modal-window';
+
+.submit-review {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  .fa-star {
+    color: #c4c4c4;
+  }
+  .fa-star.active {
+    color: #F3DB04;
+  }
+
+  .dn-error {
+    // padding: 10px 20px 0;
+    text-align: center;
+  }
+  
+  &.dn-modal-window {
+    width: 570px;
+  }
+  
+  .dn-modal-body {
+    height: 260px;
+  }
+  
+  .dn-modal-body .step-1 {
+    overflow: hidden;
+  }
+  
+  .dn-modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+
+  .submit-review-dots {
+    margin: 0;
+    padding: 15px;
+    display: block;
+  }
+  
+  .submit-review-dots > li {
+    background: #C4C4C4;
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin: 0 7px 0;
+    border-radius: 7px;
+  }
+  
+  .submit-review-dots > li.active {
+    background: #494949;
+  }
+  
+  .step-1 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+    overflow: hidden;
+    height: 210px;
+
+    .rate-btn {
+      padding: 10px 0 10px 25px;
+      background: #fff;
+      margin: 12px 15px 12px;
+      width: 235px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      box-shadow: 0px 0px 8px rgba(73, 73, 73, 0.5);
+      border-radius: 5px;
+    }
+  }
+  
+  .step-2 {
+    padding: 10px 10px 0 10px;
+    
+    .upload-area {
+      background: #F9F9F9;
+      width: 100%;
+      height: 200px;
+      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      cursor: pointer;
+
+      .upload-icon {
+        display: block;
+        color: #C4C4C4;
+      }
+
+      .upload-text {
+        margin: 10px 0 10px;
+        font-size: 0.8em;
+        font-weight: bold;
+      }
+
+      .upload-btn {
+        margin: 10px 0;
+        padding: 5px 30px;
+        background: #c4c4c4;
+        font-size: 0.9em;
+      }
+
+      &:hover {
+        border: 2px dashed #c4c4c4;
+      }
+    }
+  }
+  
+  .rate-btn:hover, .rate-btn.rate-btn-selected {
+    border: 2px solid;
+    font-weight: bold;
+  }
+}

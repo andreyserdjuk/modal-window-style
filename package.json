@@ -1,0 +1,10 @@
+{
+  "name": "angularjs-87nszv",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@uirouter/angularjs": "1.0.15",
+    "angular": "1.6.9",
+    "angular-recaptcha": "^4.2.0"
+  }
+}
