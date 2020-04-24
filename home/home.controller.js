@@ -1,5 +1,5 @@
 class HomeCtrl {
-  constructor($scope, Upload) {
+  constructor($scope, Upload, vcRecaptchaService) {
     'ngInject';
 
     $scope.step = 4;
@@ -25,6 +25,7 @@ class HomeCtrl {
     $scope.photo = null;
     $scope.reviewContent = '';
     $scope.user = {};
+    $scope.recaptchaResponse = null;
 
     $scope.next = next;
     $scope.setRate = setRate;
@@ -33,6 +34,7 @@ class HomeCtrl {
     $scope.fileFromInput = fileFromInput;
     $scope.trimReview = trimReview;
     $scope.invalidFile = invalidFile;
+    $scope.cbExpiration = cbExpiration;
 
     function setRate(rate) {
       $scope.currentRate = rate;
@@ -62,6 +64,10 @@ class HomeCtrl {
         }
         ++$scope.step;
         return;
+      }
+
+      if ($scope.step === 4) {
+        console.log($scope.recaptchaResponse);
       }
     }
 
@@ -99,6 +105,11 @@ class HomeCtrl {
         $scope.next();
       }
     }
+
+    function cbExpiration() {
+      vcRecaptchaService.reload($scope.widgetId);
+      $scope.recaptchaResponse = null;
+    };
   }
 }
 
