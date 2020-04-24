@@ -39,12 +39,12 @@
     <div ng-if="step === 2" class="step-2">
       <div
         class="upload-area"
-        ngf-drop="fileFromInput($files)"
+        ngf-drop ngf-select
+        ngf-change="fileFromInput($files, $file, $newFiles, $duplicateFiles, $invalidFiles, $event)"
         ngf-drag-over-class="'drag-over'"
         ngf-multiple="false"
         ngf-allow-dir="false"
         accept="image/*" 
-        ngf-select="fileFromInput($files)"
         ngf-pattern="'image/*'"
       >
       <div class="upload-icon">
@@ -55,14 +55,17 @@
       </div>
           <div class="upload-text">SELECT OR DRAG & DROP YOUR IMAGE HERE</div>
           <div class="upload-btn">Choose photo</div>
+          <div ng-if="photo" class="chosen-photo-txt">"{{ photo.name }}" image is chosen</div>
       </div>
     </div>
 
     <div ng-if="step === 3" class="step-3">
       <textarea
         class="reset"
-        rows="6"
-        ng-model=""
+        rows="7"
+        ng-model="$parent.reviewContent"
+        ng-change="trimReview()"
+        placeholder="Share your experience and feelings about the products."
       ></textarea>
     </div>
 

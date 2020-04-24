@@ -22,12 +22,15 @@ class HomeCtrl {
     // user input
     $scope.currentRate = null;
     $scope.photo = null;
+    $scope.reviewContent = '';
 
     $scope.next = next;
     $scope.setRate = setRate;
     $scope.back = back;
     $scope.triggerInputClick = triggerInputClick;
     $scope.fileFromInput = fileFromInput;
+    $scope.trimReview = trimReview;
+    $scope.invalidFile = invalidFile;
 
     function setRate(rate) {
       $scope.currentRate = rate;
@@ -47,10 +50,31 @@ class HomeCtrl {
 
       if ($scope.step === 2) {
         ++$scope.step;
+        return;
+      }
+
+      if ($scope.step === 3) {
+        if (!$scope.reviewContent.length) {
+          $scope.errors.push('Please leave your review.');
+          return;
+        }
+        ++$scope.step;
+        return;
+      }
+    }
+
+    function invalidFile(file) {
+      console.log(file);
+    }
+
+    function trimReview() {
+      if ($scope.reviewContent.length > 2048) {
+        $scope.reviewContent = $scope.reviewContent.substring(0, 2047);
       }
     }
 
     function back() {
+      $scope.errors = [];
       --$scope.step;
     }
 
@@ -58,13 +82,20 @@ class HomeCtrl {
       document.getElementById('upload-review-photo').click();
     }
 
-    function fileFromInput(files) {
-      if (files === undefined || !files[0]) {
+    // function fileFromInput(files) {
+    function fileFromInput($files, $file, $newFiles, $duplicateFiles, $invalidFiles, $event) {
+      $scope.errors = [];
+      console.log($files, $file, $newFiles, $duplicateFiles, $invalidFiles, $event);
+      if ($invalidFiles.length) {
+        const invalidFile = $invalidFiles[0];
+        $scope.errors.push(`Invalid file: ${invalidFile.name}`);
         return;
       }
-      $scope.photo = files[0];
-      
-      $scope.next();
+
+      if ($file !== undefined) {
+        $scope.photo = $file;
+        $scope.next();
+      }
     }
   }
 }

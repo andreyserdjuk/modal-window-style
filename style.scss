@@ -75,6 +75,7 @@
   
   .step-2 {
     padding: 10px 10px 0 10px;
+    margin-bottom: 5px;
     
     .upload-area {
       background: #F9F9F9;
@@ -90,7 +91,6 @@
 
       .upload-icon {
         display: block;
-        color: #C4C4C4;
       }
 
       .upload-text {
@@ -109,12 +109,17 @@
       &:hover {
         border: 2px dashed #c4c4c4;
       }
+
+      .chosen-photo-txt {
+        font-size: 0.9em;
+        color: #494949;
+      }
     }
   }
 
   .step-3 {
-    padding: 15px;
-    // padding: 10px 10px 0 10px;
+    // padding: 15px;
+    padding: 10px 10px 0 10px;
 
     textarea {
       width: 100%;
