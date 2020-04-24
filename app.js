@@ -1,6 +1,7 @@
 import angular from 'angular';
 import '@uirouter/angularjs';
 import 'ng-file-upload';
+import 'angular-recaptcha';
 
 // Import your app stylesheets
 import './style.scss';
@@ -13,7 +14,8 @@ import './home'
 const requires = [
   'ui.router',
   'home',
-  'ngFileUpload'
+  'ngFileUpload',
+  'vcRecaptcha',
 ];
 
 window.app = angular.module('app', requires);
