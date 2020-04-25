@@ -129,16 +129,23 @@
       </form>
     </div>
 
-    <div ng-if="errors.length" class="dn-error text-align-center">
+    <div ng-if="errors.length" class="dn-error text-align-center error-wrapper">
       <div ng-repeat="error in errors">{{ error }}</div>
     </div>
   </div>
+
+  <ul class="submit-review-dots review-dots-body">
+    <li
+      ng-repeat="i in [1,2,3,4]"
+      ng-style="{'background': i === step ? headerColor : ''}"
+    ></li>
+  </ul>
 
   <div class="dn-modal-footer">
     <a class="dn-text-modal reset footer-text" type="button" ng-if="step === 1" ng-click="close()">Cancel</a>
     <a class="dn-text-modal reset footer-text" type="button" ng-if="step > 1" ng-click="back()">Back</a>
     
-    <ul class="submit-review-dots">
+    <ul class="submit-review-dots review-dots-footer">
       <li
         ng-repeat="i in [1,2,3,4]"
         ng-style="{'background': i === step ? headerColor : ''}"
