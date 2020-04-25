@@ -1,7 +1,7 @@
 <!-- <hr> -->
 <div class="dn-modal-window-wrapper">
 
-<div class="dn-modal-window submit-review">
+<div ng-class="{'dn-modal-window': true, 'submit-review': true, 'mobile' : isMobile}">
   <div ng-if="!isMobile" class="dn-modal-header" ng-style="{'background': headerColor, 'color': '#fff'}">
     <div class="dn-header-text">
       {{ titles[step] }}
@@ -127,12 +127,14 @@
 
           <div class="dn-vertical-input">
             <label>RECAPTCHA</label>
-            <div
-                vc-recaptcha
-                ng-model="$parent.recaptchaResponse"
-                on-expire="cbExpiration()"
-                key="'6LfleR4TAAAAAGlwHyJgkecZ32oEzXO2SbbiElMj'"
-            ></div>
+            <div class="scaled-captcha">
+              <div
+                  vc-recaptcha
+                  ng-model="$parent.recaptchaResponse"
+                  on-expire="cbExpiration()"
+                  key="'6LfleR4TAAAAAGlwHyJgkecZ32oEzXO2SbbiElMj'"
+              ></div>
+            </div>
           </div>
         </div>
       </form>
@@ -143,8 +145,8 @@
         </div>
     </div>
 
-      <div class="dots-wrapper">
-        <ul class="submit-review-dots review-dots-body">
+      <div class="dots-wrapper review-dots-body">
+        <ul class="submit-review-dots">
           <li
             ng-repeat="i in [1,2,3,4]"
             ng-style="{'background': i === step ? headerColor : ''}"
