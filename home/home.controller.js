@@ -8,7 +8,7 @@ class HomeCtrl {
       1: 'How would your rate this product?',
       2: 'Upload a photo of a product (optional)',
       3: 'Tell us more about the product',
-      4: 'Provide first name, last name & email address',
+      4: 'Provide personal details',
     };
 
     $scope.rates = [
@@ -19,6 +19,7 @@ class HomeCtrl {
       { rate: 1, title: 'Hate it' },
     ];
     $scope.errors = [];
+    $scope.isMobile = detectMob();
 
     // user input
     $scope.currentRate = null;
@@ -111,6 +112,22 @@ class HomeCtrl {
       vcRecaptchaService.reload($scope.widgetId);
       $scope.recaptchaResponse = null;
     };
+
+    function detectMob() {
+      const toMatch = [
+          /Android/i,
+          /webOS/i,
+          /iPhone/i,
+          /iPad/i,
+          /iPod/i,
+          /BlackBerry/i,
+          /Windows Phone/i
+      ];
+
+      return toMatch.some((toMatchItem) => {
+          return navigator.userAgent.match(toMatchItem);
+      });
+    }
   }
 }
 

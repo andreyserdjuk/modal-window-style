@@ -1,8 +1,8 @@
 <!-- <hr> -->
-<div style="display: flex; justify-content: center;">
+<div class="dn-modal-window-wrapper">
 
 <div class="dn-modal-window submit-review">
-  <div class="dn-modal-header" ng-style="{'background': headerColor, 'color': '#fff'}">
+  <div ng-if="!isMobile" class="dn-modal-header" ng-style="{'background': headerColor, 'color': '#fff'}">
     <div class="dn-header-text">
       {{ titles[step] }}
     </div>
@@ -11,8 +11,13 @@
       <i class="fa fa-times"></i>
     </div>
   </div>
-  
+
   <div class="dn-modal-body">
+    <div ng-if="isMobile" class="mobile-header">
+      {{ titles[step] }}
+      <div style="border-bottom: 2px solid; margin: 20px 0 0;"></div>
+    </div>
+
     <div ng-if="step === 1" class="step-1">
       <ng-container ng-repeat="rate in rates">
         <div
@@ -133,17 +138,20 @@
       </form>
     </div>
 
-    <div ng-if="errors.length" class="dn-error text-align-center error-wrapper">
-      <div ng-repeat="error in errors">{{ error }}</div>
+      <div ng-if="errors.length" class="dn-error text-align-center error-wrapper">
+          <div ng-repeat="error in errors">{{ error }}</div>
+        </div>
     </div>
-  </div>
 
-  <ul class="submit-review-dots review-dots-body">
-    <li
-      ng-repeat="i in [1,2,3,4]"
-      ng-style="{'background': i === step ? headerColor : ''}"
-    ></li>
-  </ul>
+      <div class="dots-wrapper">
+        <ul class="submit-review-dots review-dots-body">
+          <li
+            ng-repeat="i in [1,2,3,4]"
+            ng-style="{'background': i === step ? headerColor : ''}"
+          ></li>
+        </ul>
+      </div>
+
 
   <div class="dn-modal-footer">
     <a class="dn-text-modal reset footer-text" type="button" ng-if="step === 1" ng-click="close()">Cancel</a>
