@@ -1,7 +1,7 @@
 <!-- <hr> -->
 <div class="dn-modal-window-wrapper">
 
-<div ng-class="{'dn-modal-window': true, 'submit-review': true, 'mobile' : isMobile}">
+<div ng-class="{'dn-modal-window': true, 'submit-review': true, 'mobile' : isMobile, 'desktop': !isMobile}">
   <div ng-if="!isMobile" class="dn-modal-header" ng-style="{'background': headerColor, 'color': '#fff'}">
     <div class="dn-header-text">
       {{ titles[step] }}
@@ -19,29 +19,28 @@
     </div>
 
     <div ng-if="step === 1" class="step-1">
-      <ng-container ng-repeat="rate in rates">
-        <div
-          ng-class="{
-            'rate-btn': true,
-            'rate-btn-selected': rate.rate === currentRate
-          }"
-          ng-mouseenter="hovering=true"
-          ng-mouseleave="hovering=false"
-          ng-style="{'border-color': (hovering || currentRate === rate.rate)? headerColor : ''}"
-          ng-click="setRate(rate.rate)"
-        >
-          <span class="margin-right-10">
-            <i
-                ng-class="{
-                  'fa fa-star regular margin-right-2': true,
-                  'active': rate.rate > i
-                }"
-                ng-repeat="i in [0,1,2,3,4]"
-            ></i>
-          </span>
-          {{ rate.title }}
-        </div>
-      </ng-container>
+      <div
+        ng-repeat="rate in rates"
+        ng-class="{
+          'rate-btn': true,
+          'rate-btn-selected': rate.rate === currentRate
+        }"
+        ng-mouseenter="hovering=true"
+        ng-mouseleave="hovering=false"
+        ng-style="{'border-color': (hovering || currentRate === rate.rate)? headerColor : ''}"
+        ng-click="setRate(rate.rate)"
+      >
+        <span class="margin-right-10">
+          <i
+              ng-class="{
+                'fa fa-star regular margin-right-2': true,
+                'active': rate.rate > i
+              }"
+              ng-repeat="i in [0,1,2,3,4]"
+          ></i>
+        </span>
+        {{ rate.title }}
+      </div>
     </div>
 
     <div ng-if="step === 2" class="step-2">
@@ -70,7 +69,6 @@
     <div ng-if="step === 3" class="step-3">
       <textarea
         class="reset"
-        rows="7"
         ng-model="$parent.reviewContent"
         ng-change="trimReview()"
         placeholder="Share your experience and feelings about the products."
@@ -159,12 +157,14 @@
     <a class="dn-text-modal reset footer-text" type="button" ng-if="step === 1" ng-click="close()">Cancel</a>
     <a class="dn-text-modal reset footer-text" type="button" ng-if="step > 1" ng-click="back()">Back</a>
     
-    <ul class="submit-review-dots review-dots-footer">
-      <li
-        ng-repeat="i in [1,2,3,4]"
-        ng-style="{'background': i === step ? headerColor : ''}"
-      ></li>
-    </ul>
+    <div class="review-dots-footer">
+      <ul class="submit-review-dots">
+        <li
+          ng-repeat="i in [1,2,3,4]"
+          ng-style="{'background': i === step ? headerColor : ''}"
+        ></li>
+      </ul>
+    </div>
     
     <a
       ng-if="step !== 4"
