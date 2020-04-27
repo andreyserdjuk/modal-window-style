@@ -73,13 +73,17 @@
     </div>
 
     <div ng-if="step === 4" class="step-4">
-      <form name="form" novalidate>
+      <form
+        name="form"
+        novalidate
+      >
         <div class="column-1">
           <div class="dn-vertical-input">
               <label>First Name</label>
               <input
                 type="text"
                 ng-model="user.firstName"
+                ng-init="setForm(form)"
                 name="firstName"
                 required=""
                 placeholder="John"
@@ -129,6 +133,9 @@
                   on-expire="cbExpiration()"
                   key="'6LfleR4TAAAAAGlwHyJgkecZ32oEzXO2SbbiElMj'"
               ></div>
+            </div>
+            <div ng-show="form.$submitted || form.email.$touched" class="dn-error">
+              <div ng-show="!recaptchaResponse">Please check the captcha.</div>
             </div>
           </div>
         </div>
@@ -194,7 +201,7 @@
     </div>
     
     <a
-      ng-if="step !== 5"
+      ng-if="step < 4"
       ng-click="next()"
       type="button"
       class="dn-text-modal reset footer-text text-align-right"
@@ -207,9 +214,9 @@
     >Submit Review</a>
     <a
       ng-if="step === 5"
-      ng-click="next()"
+      ng-click="close()"
       type="button"
-      class="dn-text-modal reset text-align-right"
+      class="dn-text-modal reset"
     >Continue shopping</a>
   </div>
 </div>

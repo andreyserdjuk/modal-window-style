@@ -2,7 +2,7 @@ class HomeCtrl {
   constructor($scope, Upload, vcRecaptchaService) {
     'ngInject';
 
-    $scope.step = 5;
+    $scope.step = 4;
     $scope.headerColor = 'green';
     $scope.titles = {
       1: 'How would your rate this product?',
@@ -37,6 +37,9 @@ class HomeCtrl {
     $scope.invalidFile = invalidFile;
     $scope.cbExpiration = cbExpiration;
     $scope.getRateBtnClass = getRateBtnClass;
+    $scope.currentForm = {};
+    $scope.setForm = form => $scope.currentForm = form;
+    
 
     function setRate(rate) {
       $scope.currentRate = rate;
@@ -70,7 +73,23 @@ class HomeCtrl {
 
       if ($scope.step === 4) {
         console.log($scope.recaptchaResponse);
-        console.log();
+        console.log($scope.user);
+        console.log($scope.photo);
+        if ($scope.currentForm.$invalid) {
+          angular.forEach($scope.currentForm.$error, function (field) {
+            angular.forEach(field, function(errorField){
+              if (errorField) {
+                errorField.$setTouched();
+              }
+              console.log(errorField);
+            })
+          });
+
+          return;
+        }
+
+        ++$scope.step;
+        return;
       }
     }
 
