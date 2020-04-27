@@ -27,7 +27,7 @@
   .mobile-header {
     display: block;
     font-weight: bold;
-    padding: 0 15px 15px;
+    padding: 0 10px 10px;
   }
   
   .dn-modal-body {
@@ -41,28 +41,49 @@
   }
   
   .dn-modal-body .step-1 {
-    // overflow: hidden;
+    padding: 0 10px 0 10px;
   }
 
   &.mobile {
     .step-1 {
       // height: calc(100% - 70px);
       height: 100%;
-      
+
+      // .rate-btn:first-child {
+      //   margin-top: 0;
+      // }
+
+      .rate-btn {
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+        align-items: center;
+        font-size: 120%;
+      }
 
       // horizontal button list
       @media (max-width: 560px) {
         flex-direction: row;
         flex-wrap: wrap;
+        display: flex;
+        justify-content: stretch;
 
         .rate-btn {
           width: 100%;
+          margin: 5% 0 5%;
         }
       }
 
       @media (min-width: 561px) {
-        flex-direction: column;
-        // flex-wrap: wrap;
+        flex-direction: row;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .rate-btn {
+          width: 47%;
+          font-size: inherit;
+        }
       }
     }
   }
@@ -70,36 +91,43 @@
   &.desktop {
     .step-1 {
       display: flex;
-      // flex-direction: row;
-      flex-direction: column;
+      flex-direction: row;
+      // flex-direction: column;
       flex-wrap: wrap;
       // align-items: stretch;
       // align-content: stretch;
       width: 100%;
       // overflow: hidden;
       justify-content: space-between;
+
+      .rate-btn {
+        width: 47%;
+      }
       
       @media (min-width: 701px) {
         height: 210px;
       }
+    }
+  }
 
-      .rate-btn {
-        padding: 5px 0 5px 25px;
-        background: #fff;
-        margin: 12px 15px 12px;
-        min-width: 230px;
-        color: #494949;
-        cursor: pointer;
-        border: 2px solid transparent;
-        box-shadow: 0px 0px 8px rgba(73, 73, 73, 0.5);
-        border-radius: 5px;
-      }
+  .step-1 {
+    .rate-btn {
+      padding: 5px 0 5px 25px;
+      background: #fff;
+      // margin: 12px 15px 12px;
+      margin: 12px 0 12px;
+      min-width: 230px;
+      color: #494949;
+      cursor: pointer;
+      border: 2px solid transparent;
+      box-shadow: 0px 0px 8px rgba(73, 73, 73, 0.5);
+      border-radius: 5px;
+    }
 
-      .rate-btn:hover, .rate-btn.rate-btn-selected {
-        border: 2px solid;
-        text-shadow:0px 0px 1px black;
-        color: black;
-      }
+    .rate-btn:hover, .rate-btn.rate-btn-selected {
+      border: 2px solid;
+      text-shadow:0px 0px 1px black;
+      color: black;
     }
   }
   
