@@ -21,10 +21,7 @@
     <div ng-if="step === 1" class="step-1">
       <div
         ng-repeat="rate in rates"
-        ng-class="{
-          'rate-btn': true,
-          'rate-btn-selected': rate.rate === currentRate
-        }"
+        ng-class="getRateBtnClass(rate.rate, rate.rate === currentRate)"
         ng-mouseenter="hovering=true"
         ng-mouseleave="hovering=false"
         ng-style="{'border-color': (hovering || currentRate === rate.rate)? headerColor : ''}"

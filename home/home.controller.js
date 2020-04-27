@@ -36,6 +36,7 @@ class HomeCtrl {
     $scope.trimReview = trimReview;
     $scope.invalidFile = invalidFile;
     $scope.cbExpiration = cbExpiration;
+    $scope.getRateBtnClass = getRateBtnClass;
 
     function setRate(rate) {
       $scope.currentRate = rate;
@@ -127,6 +128,16 @@ class HomeCtrl {
       return toMatch.some((toMatchItem) => {
           return navigator.userAgent.match(toMatchItem);
       });
+    }
+
+    function getRateBtnClass(rateNumber, isSelected) {
+      const classes = ['rate-btn', `rate-${rateNumber}`];
+      
+      if (isSelected) {
+        classes.push('rate-btn-selected');
+      }
+
+      return classes;
     }
   }
 }
