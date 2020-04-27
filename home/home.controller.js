@@ -2,9 +2,7 @@ class HomeCtrl {
   constructor($scope, Upload, vcRecaptchaService) {
     'ngInject';
 
-    $scope.step = 5
-      // justify-content: center;
-      // height: 100%;;
+    $scope.step = 5;
     $scope.headerColor = 'green';
     $scope.titles = {
       1: 'How would your rate this product?',

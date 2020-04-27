@@ -383,6 +383,10 @@
     justify-content: space-between;
     align-items: stretch;
     flex-wrap: wrap;
+
+    &.justify-flex-end {
+      justify-content: flex-end;
+    }
   }
 
   .dots-wrapper {
