@@ -291,7 +291,11 @@
         @media (min-width: 703px) {
           // width: 312px;
         }
-        // padding-right: 10px;
+        
+        &.captcha-wrapper {
+          height: auto;
+          margin-bottom: 10px;
+        }
       }
 
       .ng-invalid.ng-touched {
