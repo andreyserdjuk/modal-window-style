@@ -89,7 +89,7 @@ class HomeCtrl {
 
         const url = `http://local2.local.ecomstore.com/store-api/product/{productId}/reviews`;
 
-        Upload.upload({
+        const upload = Upload.upload({
             url,
             method: 'POST',
             data: {
@@ -101,8 +101,19 @@ class HomeCtrl {
           },
         });
 
-        ++$scope.step;
-        return;
+        upload.then(function(resp) {
+          // file is uploaded successfully
+          console.log(resp.data);
+        }, function(resp) {
+          // handle error
+          console.log('error upload: ', resp);
+        }, function(evt) {
+          // progress notify
+          console.log('progress: ' + parseInt(100.0 * evt.loaded / evt.total) + '% file :'+ evt.config.data.file.name);
+        });
+
+        upload.catch(e => console.log('error callback: ', e));
+        upload.finally(() => ++$scope.step);
       }
     }
 
