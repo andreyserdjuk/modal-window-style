@@ -1,5 +1,5 @@
 class HomeCtrl {
-  constructor($scope, Upload, vcRecaptchaService) {
+  constructor($scope, Upload, vcRecaptchaService, $http) {
     'ngInject';
 
     $scope.step = 4;
@@ -81,12 +81,20 @@ class HomeCtrl {
               if (errorField) {
                 errorField.$setTouched();
               }
-              console.log(errorField);
             })
           });
 
           return;
         }
+
+        const url = `//local.ecomstore.com/store-api/product/{productId}/reviews`;
+        const data = {...user, file: $scope.photo, captcha: $scope.recaptchaResponse};
+
+        Upload.upload({
+            url,
+            method: 'POST',
+            data,
+        });
 
         ++$scope.step;
         return;
