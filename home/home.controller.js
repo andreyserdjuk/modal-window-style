@@ -2,7 +2,7 @@ class HomeCtrl {
   constructor($scope, Upload, vcRecaptchaService, $http) {
     'ngInject';
 
-    $scope.step = 4;
+    $scope.step = 1;
     $scope.headerColor = 'green';
     $scope.titles = {
       1: 'How would your rate this product?',
@@ -87,13 +87,18 @@ class HomeCtrl {
           return;
         }
 
-        const url = `//local.ecomstore.com/store-api/product/{productId}/reviews`;
-        const data = {...user, file: $scope.photo, captcha: $scope.recaptchaResponse};
+        const url = `http://local2.local.ecomstore.com/store-api/product/{productId}/reviews`;
 
         Upload.upload({
             url,
             method: 'POST',
-            data,
+            data: {
+            ...$scope.user,
+            file: $scope.photo,
+            captcha: $scope.recaptchaResponse,
+            rating: $scope.currentRate,
+            content: $scope.reviewContent,
+          },
         });
 
         ++$scope.step;
