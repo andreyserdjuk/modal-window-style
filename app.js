@@ -16,7 +16,6 @@ const requires = [
   'home',
   'ngFileUpload',
   'vcRecaptcha',
-  // '$http',
 ];
 
 window.app = angular.module('app', requires);

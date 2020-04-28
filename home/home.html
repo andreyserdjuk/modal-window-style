@@ -88,7 +88,7 @@
                 required=""
                 placeholder="John"
               />
-              <div ng-show="form.$submitted || form.firstName.$touched" class="dn-error">
+              <div ng-show="form.$submitted || form.firstName.$touched" class="text-danger">
                 <div ng-show="form.firstName.$error.required">This value should not be blank.</div>
               </div>
           </div>
@@ -102,7 +102,7 @@
                 required=""
                 placeholder="Doe"
               />
-              <div ng-show="form.$submitted || form.lastName.$touched" class="dn-error">
+              <div ng-show="form.$submitted || form.lastName.$touched" class="text-danger">
                 <div ng-show="form.lastName.$error.required">This value should not be blank.</div>
               </div>
           </div>
@@ -118,7 +118,7 @@
                 required=""
                 placeholder="john.doe@gmail.com"
               />
-              <div ng-show="form.$submitted || form.email.$touched" class="dn-error">
+              <div ng-show="form.$submitted || form.email.$touched" class="text-danger">
                 <div ng-show="form.email.$error.required">This value should not be blank.</div>
                 <div ng-show="form.email.$error.email">This is not a valid email.</div>
               </div>
@@ -134,7 +134,7 @@
                   key="'6LfleR4TAAAAAGlwHyJgkecZ32oEzXO2SbbiElMj'"
               ></div>
             </div>
-            <div ng-show="form.$submitted || form.email.$touched" class="dn-error">
+            <div ng-show="form.$submitted || form.email.$touched" class="text-danger">
               <div ng-show="!recaptchaResponse">Please check the captcha.</div>
             </div>
           </div>
@@ -160,7 +160,7 @@
       <div class="review-submitted-text">Your review was submitted.</div>
     </div>
 
-      <div ng-if="errors.length" class="dn-error text-align-center error-wrapper">
+      <div ng-if="errors.length" class="text-danger text-align-center error-wrapper">
           <div ng-repeat="error in errors">{{ error }}</div>
         </div>
     </div>

@@ -155,7 +155,7 @@ class HomeCtrl {
     function cbExpiration() {
       vcRecaptchaService.reload($scope.widgetId);
       $scope.recaptchaResponse = null;
-    };
+    }
 
     function detectMob() {
       const toMatch = [
