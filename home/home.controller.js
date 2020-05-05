@@ -3,20 +3,21 @@ class HomeCtrl {
     'ngInject';
 
     $scope.step = 5;
-    $scope.headerColor = 'green';
+    $scope.headerColor = '#009688';
+    $scope.headerTextColor = isBright($scope.headerColor)? '#494949' : 'white';
     $scope.titles = {
-        1: 'How would your rate this product?',
-        2: 'Upload a photo of a product (optional)',
-        3: 'Tell us more about the product',
-        4: 'Provide personal details',
+      1: 'How would your rate this product?',
+      2: 'Upload a photo of a product (optional)',
+      3: 'Tell us more about the product',
+      4: 'Provide personal details',
     };
 
     $scope.rates = [
-        { rate: 5, title: 'Love it' },
-        { rate: 4, title: 'Like it' },
-        { rate: 3, title: 'It\'s okay' },
-        { rate: 2, title: 'I didn\'t like it' },
-        { rate: 1, title: 'Hate it' },
+      { rate: 5, title: 'Love it' },
+      { rate: 4, title: 'Like it' },
+      { rate: 3, title: 'It\'s okay' },
+      { rate: 2, title: 'I didn\'t like it' },
+      { rate: 1, title: 'Hate it' },
     ];
     $scope.errors = [];
 
@@ -149,7 +150,28 @@ class HomeCtrl {
         $uibModalInstance.close();
     }
 
+    function isBright(h) {
+      let r = 0, g = 0, b = 0;
 
+      // 3 digits
+      if (h.length == 4) {
+        r = "0x" + h[1] + h[1];
+        g = "0x" + h[2] + h[2];
+        b = "0x" + h[3] + h[3];
+
+      // 6 digits
+      } else if (h.length == 7) {
+        r = "0x" + h[1] + h[2];
+        g = "0x" + h[3] + h[4];
+        b = "0x" + h[5] + h[6];
+      }
+
+      const brightness = Math.round(((parseInt(r) * 299) +
+                          (parseInt(g) * 587) +
+                          (parseInt(b) * 114)) / 1000);
+
+      return brightness > 125;
+    }
   }
 }
 
