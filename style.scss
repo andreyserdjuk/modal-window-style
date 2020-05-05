@@ -1,5 +1,7 @@
 @import './dn-common';
 @import './dn-modal-window';
+@import url(https://fonts.googleapis.com/css?family=Barlow+Condensed:600);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600);
 
 @mixin rating-vertical-sort {
   .rate-1 {
@@ -411,13 +413,14 @@
     // border: 1px solid` red;
     background: black;
     color: #fff;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    
     svg {
-      position: relative
-    }
-
-    .discount-coupon {
-      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-      font-size: 3vh;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
 
     .valid-until {
@@ -428,8 +431,34 @@
     }
 
     .discount-text {
-      position: absolute;
       padding: 20px;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      
+      &>div {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .discount-coupon {
+          font-size: 175%;
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 600;
+        }
+
+        .percent-off {
+          font-family: 'Barlow Condensed', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+          font-size: 320%;
+          font-weight: 600;
+        }
+
+        .coupon-code {
+          font-size: 140%;
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 300;
+        }
+      }
     }
   }
 
