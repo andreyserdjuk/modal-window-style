@@ -195,7 +195,7 @@
       .upload-btn {
         margin: 15px 0 0;
         padding: 5px 25px;
-        background: #c4c4c4;
+        background: #75E275;
         font-size: 0.9em;
       }
 
@@ -336,72 +336,100 @@
   }
 
   .step-5 {
-    display: flex;
+    .thank-you-row {
+      display: flex;
 
-    @media (max-width: 560px) {
-      flex-direction: column;
-      justify-content: center;
-      height: 100%;
-
-      .thank-you-wrapper {
-        display: flex;
+      @media (max-width: 560px) {
+        flex-direction: column;
         justify-content: center;
-        padding: 15px;
+        height: 100%;
 
-        >svg {
-          height: 80%;
-          max-height: 173px;
+        .thank-you-wrapper {
+          display: flex;
+          justify-content: center;
+          padding: 15px;
+
+          >svg {
+            height: 80%;
+            max-height: 173px;
+          }
+        }
+
+        .visual-separator {
+          display: flex;
+          justify-content: center;
+
+          &>div {
+            border-top: 1px solid #494949;
+            width: 220px;
+          }
+        }
+
+        .review-submitted-text {
+          padding: 50px 15px;
+          text-align: center;
         }
       }
 
-      .visual-separator {
-        display: flex;
+      @media (min-width: 561px) {
+        flex-direction: row;
+        align-items: stretch;
         justify-content: center;
+        height: 100%;
 
-        &>div {
-          border-top: 1px solid #494949;
-          width: 220px;
+        .thank-you-wrapper {
+          display: flex;
+          align-items: center;
+          padding: 15px 50px 15px 0;
+
+          >svg {
+            height: 80%;
+            max-height: 173px;
+          }
         }
-      }
 
-      .review-submitted-text {
-        padding: 50px 15px;
-        text-align: center;
+        .visual-separator {
+          display: flex;
+          align-items: center;
+
+          &>div {
+            border-right: 1px solid #494949;
+            height: 120px;
+          }
+        }
+
+        .review-submitted-text {
+          display: flex;
+          align-items: center;
+          padding: 15px 0 15px 50px;
+        }
       }
     }
+  }
 
-    @media (min-width: 561px) {
-      flex-direction: row;
-      align-items: stretch;
-      justify-content: center;
-      height: 100%;
+  .discount-row {
+    // border: 1px solid` red;
+    background: black;
+    color: #fff;
+    svg {
+      position: relative
+    }
 
-      .thank-you-wrapper {
-        display: flex;
-        align-items: center;
-        padding: 15px 50px 15px 0;
+    .discount-coupon {
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 3vh;
+    }
 
-        >svg {
-          height: 80%;
-          max-height: 173px;
-        }
-      }
+    .valid-until {
+      padding: 5px 17px 5px;
+      background: #fff;
+      color: #000;
+      border-radius: 5px;
+    }
 
-      .visual-separator {
-        display: flex;
-        align-items: center;
-
-        &>div {
-          border-right: 1px solid #494949;
-          height: 120px;
-        }
-      }
-
-      .review-submitted-text {
-        display: flex;
-        align-items: center;
-        padding: 15px 0 15px 50px;
-      }
+    .discount-text {
+      position: absolute;
+      padding: 20px;
     }
   }
 
