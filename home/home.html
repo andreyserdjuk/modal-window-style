@@ -168,13 +168,15 @@
 
   <div class="discount-row">
     <div class="discount-text">
-        <div>
+        <div class="first-line">
           <div class="discount-coupon">Discount coupon</div>
-          <div class="percent-off">{{ '10' }}% OFF</div>
+          <div class="percent-off">
+            {{ '10' }}% OFF
+          </div>
         </div>
-        <div>
+        <div class="second-line">
           <div class="valid-until">Valid until {{ '28/03/2020' }}</div>
-          <div class="coupon-code">COUPON CODE: 893487034</div>
+          <div class="coupon-code">COUPON CODE: <span class="coupon-code-text">893487034</span></div>
         </div>
     </div>
     <svg width="668" height="144" viewBox="0 0 668 144" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -199,6 +201,7 @@
 
 
   <div
+    ng-if="!photo"
     ng-class="{'dn-modal-footer': true, 'justify-flex-end': step === 5}"
   >
     <a
@@ -242,6 +245,22 @@
       class="dn-text-modal reset"
     >Continue shopping</a>
   </div>
+
+  <div
+    ng-if="photo"
+    class="continue-shopping-row"
+  >
+    <div class="continue-shopping-text">
+      <div>Use the discount right away.</div>&nbsp;
+      <div>Click the button below now.</div>
+    </div>
+    <a
+      ng-click="close()"
+      type="button"
+      class="continue-shopping-button reset"
+    >Continue shopping</a>
+  </div>
+
 </div>
 
 

@@ -22,7 +22,7 @@ class HomeCtrl {
 
     // user input
     $scope.currentRate = null;
-    $scope.photo = null;
+    $scope.photo = 1;
     $scope.reviewContent = '';
     $scope.user = {};
     $scope.recaptchaResponse = null;

@@ -19,7 +19,7 @@ const requires = [
 ];
 
 window.app = angular.module('app', requires);
-window.app.constant('isMobile', false);
+window.app.constant('isMobile', true);
 window.app.constant('addPhotoText', 'GET 10% OFF YOUR NEXT PURCHASE!');
 window.Routing = {generate: () => {}};
 
