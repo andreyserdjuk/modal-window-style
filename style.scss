@@ -337,6 +337,36 @@
     }
   }
 
+  &.mobile {
+    .step-5 {
+      height: calc(100% - 15px);
+
+      .thank-you-wrapper {
+        @media (min-width: 561px) {
+          padding: 0 50px 0 0;
+        }
+
+        display: flex;
+        align-items: center;
+        padding: 0;
+
+        >svg {
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  &.desktop {
+    .step-5 {
+      @media (min-width: 561px) {
+        .thank-you-wrapper {
+          padding: 20px 50px 20px 0;
+        }
+      }
+    }
+  }
+
   .step-5 {
     .thank-you-row {
       display: flex;
@@ -382,7 +412,6 @@
         .thank-you-wrapper {
           display: flex;
           align-items: center;
-          padding: 15px 50px 15px 0;
 
           >svg {
             height: 80%;
@@ -396,7 +425,15 @@
 
           &>div {
             border-right: 1px solid #494949;
-            height: 120px;
+            max-height: 120px;
+            height: 70%;
+            @media (max-height: 320px) {
+              
+            }
+            
+            @media (min-height: 321px) {
+              
+            }
           }
         }
 
@@ -619,14 +656,25 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 18px;
+
+    @media (max-height: 320px) {
+      flex-direction: row;
+      .continue-shopping-text {
+        margin-right: 15px;
+      }
+    }
+    @media (min-height: 321px) {
+      .continue-shopping-text {
+        margin-bottom: 20px;
+      }
+    }
 
     .continue-shopping-text {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       justify-content: center;
-      margin-bottom: 20px;
       &> div {
         white-space: nowrap;
       }
