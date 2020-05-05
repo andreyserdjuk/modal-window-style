@@ -166,7 +166,12 @@
         </div>
     </div>
 
-  <div class="discount-row">
+  <div
+    class="discount-row"
+    ng-style="{
+      'background': headerColor,
+    }"
+  >
     <div class="discount-text">
         <div class="first-line">
           <div class="discount-coupon">Discount coupon</div>
@@ -258,6 +263,12 @@
       ng-click="close()"
       type="button"
       class="continue-shopping-button reset"
+      ng-mouseenter="hovering2=true"
+      ng-mouseleave="hovering2=false"
+      ng-style="{
+        'background': hovering2? headerColor : '',
+        'color': hovering2? '#fff' : '',
+      }"
     >Continue shopping</a>
   </div>
 
