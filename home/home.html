@@ -6,7 +6,10 @@
       {{ titles[step] }}
     </div>
 
-    <div class="dn-x-close-modal">
+    <div
+      ng-click="close()"
+      class="dn-x-close-modal"
+    >
       <i class="fa fa-times"></i>
     </div>
   </div>
@@ -85,7 +88,6 @@
                 ng-init="setForm(form)"
                 name="firstName"
                 required=""
-                placeholder="John"
               />
               <div ng-show="form.$submitted || form.firstName.$touched" class="text-danger">
                 <div ng-show="form.firstName.$error.required">This value should not be blank.</div>
@@ -99,7 +101,6 @@
                 ng-model="user.lastName"
                 name="lastName"
                 required=""
-                placeholder="Doe"
               />
               <div ng-show="form.$submitted || form.lastName.$touched" class="text-danger">
                 <div ng-show="form.lastName.$error.required">This value should not be blank.</div>
@@ -115,7 +116,6 @@
                 ng-model="user.email"
                 name="email"
                 required=""
-                placeholder="john.doe@gmail.com"
               />
               <div ng-show="form.$submitted || form.email.$touched" class="text-danger">
                 <div ng-show="form.email.$error.required">This value should not be blank.</div>
@@ -168,7 +168,7 @@
 
   <div
     class="discount-row"
-    ng-if="photo"
+    ng-if="photo && step === 5"
     ng-style="{
       'background': headerColor,
       'color': headerTextColor,
@@ -208,7 +208,7 @@
 
 
   <div
-    ng-if="!photo"
+    ng-if="!photo && step !== 5"
     ng-class="{'dn-modal-footer': true, 'justify-flex-end': step === 5}"
   >
     <a
@@ -238,7 +238,7 @@
       ng-click="next()"
       type="button"
       class="dn-text-modal reset footer-text text-align-right"
-    >Next</a>
+    >{{ step === 2 ? 'Skip' : 'Next'}}</a>
     <a
       ng-if="step === 4"
       ng-click="next()"
@@ -254,7 +254,7 @@
   </div>
 
   <div
-    ng-if="photo"
+    ng-if="photo && step === 5"
     class="continue-shopping-row"
   >
     <div class="continue-shopping-text">

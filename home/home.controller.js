@@ -1,10 +1,10 @@
 class HomeCtrl {
-  constructor($scope, Upload, vcRecaptchaService, $http, isMobile, addPhotoText) {
+  constructor($scope, Upload, vcRecaptchaService, $http, isMobile, addPhotoText, headerColor) {
     'ngInject';
 
-    $scope.step = 5;
-    $scope.headerColor = '#009688';
-    $scope.headerTextColor = isBright($scope.headerColor)? '#494949' : 'white';
+    $scope.step = 1;
+    $scope.headerColor = headerColor;
+    $scope.headerTextColor = isBright(headerColor)? '#494949' : 'white';
     $scope.titles = {
       1: 'How would your rate this product?',
       2: 'Upload a photo of a product (optional)',
@@ -23,7 +23,7 @@ class HomeCtrl {
 
     // user input
     $scope.currentRate = null;
-    $scope.photo = 1;
+    $scope.photo = null;
     $scope.reviewContent = '';
     $scope.user = {};
     $scope.recaptchaResponse = null;
@@ -85,7 +85,7 @@ class HomeCtrl {
                 return;
             }
 
-            const url = Routing.generate('new_product_review', {product: productId});
+            const url = Routing.generate('new_product_review', {productId});
             const upload = Upload.upload({
                 url,
                 method: 'POST',
