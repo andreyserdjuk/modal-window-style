@@ -22,7 +22,10 @@ window.app = angular.module('app', requires);
 window.app.constant('isMobile', false);
 window.app.constant('addPhotoText', 'GET 10% OFF YOUR NEXT PURCHASE!');
 window.app.constant('headerColor', '#005171');
+window.app.constant('productId', 123);
+window.app.constant('notifications', {danger: (t) => console.log('notification', t)});
+window.app.constant('$uibModalInstance', {close: () => console.log('uibModalInstance', 'close')});
 
-window.Routing = {generate: () => {}};
+window.Routing = {generate: () => 'https://modal-window-style.stackblitz.io'};
 
 angular.bootstrap(document.getElementById('app'), ['app']);

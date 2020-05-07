@@ -1,5 +1,16 @@
 class HomeCtrl {
-  constructor($scope, Upload, vcRecaptchaService, $http, isMobile, addPhotoText, headerColor) {
+  constructor(
+      $scope,
+      Upload,
+      vcRecaptchaService,
+      $http,
+      isMobile,
+      addPhotoText,
+      productId,
+      headerColor,
+      notifications,
+      $uibModalInstance
+    ) {
     'ngInject';
 
     $scope.step = 1;
