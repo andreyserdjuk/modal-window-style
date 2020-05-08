@@ -593,6 +593,16 @@
     &.justify-flex-end {
       justify-content: flex-end;
     }
+
+    .adaptive-cancel {
+      @media (min-width: 461px) {
+        
+      }
+
+      @media (max-width: 460px) {
+        width: 150px;
+      }
+    }
   }
 
   .dots-wrapper {

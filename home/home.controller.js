@@ -13,7 +13,7 @@ class HomeCtrl {
     ) {
     'ngInject';
 
-    $scope.step = 1;
+    $scope.step = 4;
     $scope.headerColor = headerColor;
     $scope.headerTextColor = isBright(headerColor)? '#494949' : 'white';
     $scope.titles = {
@@ -50,6 +50,7 @@ class HomeCtrl {
     $scope.currentForm = {};
     $scope.setForm = form => $scope.currentForm = form;
     $scope.close = close;
+    $scope.closeAndHome = closeAndHome;
     $scope.isMobile = isMobile;
     $scope.addPhotoText = addPhotoText;
 
@@ -159,6 +160,11 @@ class HomeCtrl {
 
     function close() {
         $uibModalInstance.close();
+    }
+
+    function closeAndHome() {
+        $uibModalInstance.close();
+        document.location.href='/';
     }
 
     function isBright(h) {

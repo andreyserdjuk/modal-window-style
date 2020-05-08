@@ -212,17 +212,14 @@
     ng-class="{'dn-modal-footer': true, 'justify-flex-end': step === 5}"
   >
     <a
-      ng-if="step === 1"
+      ng-if="step < 5"
       ng-click="close()"
       type="button"
-      class="dn-text-modal reset footer-text"
+      ng-class="{
+        'dn-text-modal reset': true,
+        'adaptive-cancel': step < 4
+      }"
     >Cancel</a>
-    <a
-      ng-if="step > 1 && step < 5"
-      ng-click="back()"
-      type="button"
-      class="dn-text-modal reset footer-text"
-    >Back</a>
 
     <div ng-if="step <= 4" class="review-dots-footer">
       <ul class="submit-review-dots">
@@ -234,10 +231,16 @@
     </div>
 
     <a
+      ng-if="step > 1 && step < 5"
+      ng-click="back()"
+      type="button"
+      class="dn-text-modal reset"
+    >Back</a>
+    <a
       ng-if="step < 4"
       ng-click="next()"
       type="button"
-      class="dn-text-modal reset footer-text text-align-right"
+      class="dn-text-modal reset text-align-right"
     >{{ step === 2 ? 'Skip' : 'Next'}}</a>
     <a
       ng-if="step === 4"
@@ -262,7 +265,7 @@
       <div>Click the button below now.</div>
     </div>
     <a
-      ng-click="close()"
+      ng-click="closeAndHome()"
       type="button"
       class="continue-shopping-button reset"
       ng-mouseenter="hovering2=true"
