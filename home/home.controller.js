@@ -13,7 +13,7 @@ class HomeCtrl {
     ) {
     'ngInject';
 
-    $scope.step = 4;
+    $scope.step = 5;
     $scope.headerColor = headerColor;
     $scope.headerTextColor = isBright(headerColor)? '#494949' : 'white';
     $scope.titles = {
@@ -34,7 +34,7 @@ class HomeCtrl {
 
     // user input
     $scope.currentRate = null;
-    $scope.photo = null;
+    $scope.photo = 1;
     $scope.reviewContent = '';
     $scope.user = {};
     $scope.recaptchaResponse = null;

@@ -19,7 +19,7 @@ const requires = [
 ];
 
 window.app = angular.module('app', requires);
-window.app.constant('isMobile', 1);
+window.app.constant('isMobile', 0);
 window.app.constant('addPhotoText', 'GET 10% OFF YOUR NEXT PURCHASE!');
 window.app.constant('headerColor', '#005171');
 window.app.constant('productId', 123);

@@ -161,9 +161,9 @@
       </div>
     </div>
 
-      <div ng-if="errors.length" class="text-danger text-align-center error-wrapper">
-          <div ng-repeat="error in errors">{{ error }}</div>
-        </div>
+    <div ng-if="errors.length" class="text-danger text-align-center error-wrapper">
+      <div ng-repeat="error in errors">{{ error }}</div>
+    </div>
     </div>
 
   <div
@@ -174,6 +174,15 @@
       'color': headerTextColor,
     }"
   >
+    <svg width="668" height="144" viewBox="0 0 668 144" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M280 0.499908C280 0.333208 280 0.166572 280.001 0H316.899C328.291 28.5868 358.288 48.9999 393.5 48.9999C428.712 48.9999 458.709 28.5868 470.101 0H637.999C638 0.166572 638 0.333208 638 0.499908C638 68.4605 583.705 125.83 509.367 144H408.633C334.295 125.83 280 68.4605 280 0.499908Z" fill="url(#paint0_linear)"/>
+    <defs>
+    <linearGradient id="paint0_linear" x1="557" y1="2" x2="557" y2="202" gradientUnits="userSpaceOnUse">
+    <stop stop-color="white" stop-opacity="0.15"/>
+    <stop offset="1" stop-color="white" stop-opacity="0.02"/>
+    </linearGradient>
+    </defs>
+    </svg>
     <div class="discount-text">
         <div class="first-line">
           <div class="discount-coupon">Discount coupon</div>
@@ -186,15 +195,6 @@
           <div class="coupon-code">COUPON CODE: <span class="coupon-code-text">893487034</span></div>
         </div>
     </div>
-    <svg width="668" height="144" viewBox="0 0 668 144" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M280 0.499908C280 0.333208 280 0.166572 280.001 0H316.899C328.291 28.5868 358.288 48.9999 393.5 48.9999C428.712 48.9999 458.709 28.5868 470.101 0H637.999C638 0.166572 638 0.333208 638 0.499908C638 68.4605 583.705 125.83 509.367 144H408.633C334.295 125.83 280 68.4605 280 0.499908Z" fill="url(#paint0_linear)"/>
-    <defs>
-    <linearGradient id="paint0_linear" x1="557" y1="2" x2="557" y2="202" gradientUnits="userSpaceOnUse">
-    <stop stop-color="white" stop-opacity="0.15"/>
-    <stop offset="1" stop-color="white" stop-opacity="0.02"/>
-    </linearGradient>
-    </defs>
-    </svg>
   </div>
 
   <div ng-if="step <= 4" class="dots-wrapper review-dots-body">
