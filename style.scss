@@ -501,7 +501,7 @@
     flex-direction: row;
 
     svg {
-      position: relative;
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
@@ -513,7 +513,7 @@
       display: flex;
       flex-direction: column;
       width: 100%;
-      position: absolute;
+      position: relative;
 
       &>.first-line {
         align-items: flex-start;
