@@ -13,7 +13,7 @@ class HomeCtrl {
     ) {
     'ngInject';
 
-    $scope.step = 5;
+    $scope.step = 2;
     $scope.headerColor = headerColor;
     $scope.headerTextColor = isBright(headerColor)? '#494949' : 'white';
     $scope.titles = {
