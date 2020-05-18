@@ -60,7 +60,7 @@
   .dn-modal-body {
     padding: 15px 25px 0;
     flex-grow: 2;
-    height: 100%;
+    // height: 100%;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
@@ -261,7 +261,7 @@
 
     textarea {
       width: 100%;
-      height: 100%;
+      // height: 100%;
       border-radius: 5px;
       box-shadow: 0px 0px 8px rgba(73, 73, 73, 0.5);
       padding: 30px;
@@ -385,7 +385,7 @@
 
   &.mobile {
     .step-5 {
-      height: calc(100% - 15px);
+      // height: calc(100% - 15px);
 
       .thank-you-wrapper {
         @media (min-width: 561px) {
@@ -417,10 +417,26 @@
     .thank-you-row {
       display: flex;
 
+      @media (max-height: 375px) {
+        .thank-you-wrapper {
+          >svg {
+            height: 70px !important;
+          }
+        }
+      } 
+
+      @media (min-height: 376px) and (max-height: 440px) {
+        .thank-you-wrapper {
+          >svg {
+            height: 100px !important;
+          }
+        }
+      } 
+
       @media (max-width: 560px) {
         flex-direction: column;
         justify-content: center;
-        height: 100%;
+        // height: 100%;
 
         .thank-you-wrapper {
           display: flex;
@@ -444,7 +460,7 @@
         }
 
         .review-submitted-text {
-          padding: 50px 15px;
+          padding: 40px 15px;
           text-align: center;
         }
       }
@@ -453,7 +469,7 @@
         flex-direction: row;
         align-items: stretch;
         justify-content: center;
-        height: 100%;
+        // height: 100%;
 
         .thank-you-wrapper {
           display: flex;
@@ -536,7 +552,7 @@
         }
 
         .percent-off {
-          font-family: 'Barlow Condensed', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+          font-family: 'Barlow Condensed', sans-serif;
           font-size: 320%;
           font-weight: 600;
           position: relative;

@@ -14,7 +14,13 @@
     </div>
   </div>
 
-  <div class="dn-modal-body">
+  <div
+    class="dn-modal-body"
+    ng-style="{
+      'height': (isMobile && step === 5)? '' : '100%',
+      'justify-content': (isMobile && step === 5) ? 'center' : ''
+      }"
+    >
     <div ng-if="isMobile && titles[step]" class="mobile-header">
       {{ titles[step] }}
       <div style="border-bottom: 2px solid; margin: 12px 0 0;"></div>
